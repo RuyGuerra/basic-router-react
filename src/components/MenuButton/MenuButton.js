@@ -1,0 +1,22 @@
+import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
+import { withRouter } from 'react-router';
+
+class MenuButton extends Component {
+  handleClick = () => {
+    const { path, history } = this.props;
+    history.push(path);
+    console.log('HOME', this.props);
+  };
+
+  render() {
+    const { children } = this.props;
+    return (
+      <Button onClick={this.handleClick} color="inherit">
+        {children}
+      </Button>
+    );
+  }
+}
+
+export default withRouter(MenuButton);
